@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  web-app-sandbox:
+    build: ./web-app-sandbox
+    image: web-sandbox
+    ports:
+      - 5000:5000
+    container_name: saferoute-sandbox
+  backend-servers-flask:
+    restart: unless-stopped
+    build: ./backend-servers/flask/server-template/.
+    image: flask-server
+    ports:
+      - 5500:5500
+    container_name: saferoute-flask-backend
+
